@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanic Testing!</title>
+    <style type="text/css">{% include 'static/bulma-custom.css' %}</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+<div class="container">
+    <button class="is-info button">
+        Test!
+    </button>
+
+    <p>This is a test. {% for _ in test %}{{ loop.index }} {% endfor %}</p>
+    <a href="/test">test</a>
+    <a href="/html">html</a>
+    <a href="/">base</a>
+
+    <form method="post">
+        <label>Textbox test:
+            <input name="textboxtest">
+        </label>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if printed %}
+        <p>{{ printed }}</p>
+    {% else %}
+        <p>:^)</p>
+    {% endif %}
+</div>
+
+
+</body>
+</html>

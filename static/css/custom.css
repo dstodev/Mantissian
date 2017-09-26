@@ -1,0 +1,16 @@
+body.mcbg {
+    background: url('/static/images/minecraft.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.glass {
+    opacity: 0.9;
+    filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -webkit-filter:blur(2px);
+}

@@ -1,0 +1,6 @@
+# 2017 Daniel Stotts
+
+# Ignore Bulma master and configuration files
+static/.sass-cache/
+static/bulma-master/
+static/css/bulma-custom.scss

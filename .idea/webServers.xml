@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0724e645-4ad1-40b1-8c40-fd899c68361a" name="daedalus" url="http://mantissian.net">
+        <fileTransfer host="mantissian.net" port="22" privateKey="C:\Users\Cryotech\Desktop\PuTTY\key\Isogen\private\privatekey_nopass" rootFolder="/home/daniel" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

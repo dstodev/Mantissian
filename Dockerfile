@@ -18,4 +18,4 @@ RUN pip install jinja2
 ADD . ${PROJECT}
 ENTRYPOINT ["python", "main.py"]
 
-EXPOSE 8000
+EXPOSE 80

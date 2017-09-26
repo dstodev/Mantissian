@@ -20,7 +20,7 @@ async def static(_, path):
 
 @site.route("/minecraft")
 async def minecraft(_):
-    return await html_render("template/minecraft.html")
+    return html_render("template/minecraft.html")
 
 
 @site.route("/mc")
@@ -35,7 +35,7 @@ async def test(_):
 
 @site.route("/html", methods=["GET", "POST"])
 async def htmltest(request):
-    return await html_render("template/index.html", {
+    return html_render("template/index.html", {
         "test": "Template value!",
         "printed": request.form.get("textboxtest"),
     })

@@ -21,7 +21,7 @@ async def static(_, path):
 
 @site.route("/python/<path:path>", methods=["POST"])
 async def python(request, path):
-    out = check_output(["python3", "/python/{}".format(path), *(list(request.form.values())[0])],
+    out = check_output(["python3", "python/{}".format(path), *(list(request.form.values())[0])],
                        universal_newlines=True)
     return text(str(out))
 

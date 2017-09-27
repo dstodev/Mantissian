@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cubic Text Generator</title>
+    <link rel="stylesheet" href="/static/css/bulma-custom.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: #000000;">
+
+
+<div class="section">
+
+    <div class="container"
+         style="background-color: #180208; outline: 0.1em solid #ffffff; padding: 1em; padding-top: 0.1em;">
+        <nav class="level" style="margin-bottom: 0.5em;">
+            <div class="level-left"></div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading has-text-white">Toys</p>
+                    <p class="title has-text-white">Cubic Text Generator</p>
+                </div>
+            </div>
+        </nav>
+        <hr style="margin: 0 auto; width:99.5%; height: 0.1em;">
+
+        <div class="columns" style="padding: 1em;">
+            <div class="column">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Write something silly" maxlength="32"
+                               id="cube-input">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-primary" id="cube-submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <p class="has-text-white" style="white-space: pre; font-family: 'Lucida Console', Monaco, monospace;"
+                   id="cube-output"></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#cube-submit").on("click", function () {
+            var input = document.getElementById("cube-input").value;
+            if (input !== "" && input !== undefined) {
+                $.ajax({
+                    url: "/python/cubic.py",
+                    type: "POST",
+                    data: {
+                        message: input
+                    },
+                    success: function (output) {
+                        $("#cube-output").html(output);
+                    },
+                    error: function (message) {
+                        $("#cube-output").html("Something went wrong!: " + message)
+                    }
+                });
+            }
+            return false;
+        });
+        $("#cube-input").on("keypress", function (event) {
+            if (event.which === 13) {
+                $("#cube-submit").click();
+            }
+        });
+        return false;
+    });
+</script>
+</body>
+</html>

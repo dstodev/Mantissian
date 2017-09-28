@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/static/css/custom.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body style="background-color: #000000;">
+<body style="min-height: 100vh ; background-color: #000000;">
 
 
 <div class="section">
 
     <div class="container"
-         style="background-color: #180208; outline: 0.1em solid #ffffff; padding: 1em; padding-top: 0.1em;">
+         style="background-color: #180208; outline: 0.1em solid #ffffff; padding: 0.1em 1em 1em;">
         <nav class="level" style="margin-bottom: 0.5em;">
             <div class="level-left"></div>
             <div class="level-item has-text-centered">
@@ -28,18 +28,13 @@
         <div class="columns" style="padding: 1em;">
             <div class="column">
                 <div class="field">
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Write something silly" maxlength="32"
-                               id="cube-input">
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
+                    <div class="control is-horizontal">
+                        <input class="input" type="text" placeholder="Write something silly" maxlength="45"
+                               style="max-width: 46ch" id="cube-input">
                         <button class="button is-primary" id="cube-submit">Submit</button>
+                        <!-- <button class="button" id="cube-copy">Copy</button> -->
                     </div>
                 </div>
-            </div>
-            <div class="column">
                 <p class="has-text-white" style="white-space: pre; font-family: 'Lucida Console', Monaco, monospace;"
                    id="cube-output"></p>
             </div>
@@ -56,26 +51,33 @@
             var input = document.getElementById("cube-input").value;
             if (input !== "" && input !== undefined) {
                 $.ajax({
-                    url: "/python/cubic.py",
+                    url: "/ajax/cube",
                     type: "POST",
                     data: {
                         message: input
                     },
                     success: function (output) {
                         $("#cube-output").html(output);
+                        // console.log(output)
                     },
                     error: function (message) {
                         $("#cube-output").html("Something went wrong!: " + message)
                     }
                 });
             }
-            return false;
         });
         $("#cube-input").on("keypress", function (event) {
             if (event.which === 13) {
                 $("#cube-submit").click();
             }
         });
+//        $("#cube-copy").on("click", function () {
+//            var output = document.getElementById("cube-output").innerHTML;
+//            if (output !== "") {
+//                document.querySelector("#cube-output").select();
+//                document.execCommand("copy");
+//            }
+//        });
         return false;
     });
 </script>

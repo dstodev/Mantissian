@@ -16,6 +16,6 @@ RUN pip install jinja2
 
 # Add project files
 ADD . ${PROJECT}
-ENTRYPOINT ["python", "main.py"]
+ENTRYPOINT ["python3", "main.py"]
 
-EXPOSE 80 443
+EXPOSE 80
